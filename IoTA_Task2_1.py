@@ -47,11 +47,7 @@ while mc < mc_end:
         nrtcl = mc + IAT_nRT
         if nnrt > 0:
             if s == 0:
-                if pe > 0:
-                    scl = mc + pe
-                    pe = pe - (scl - mc)
-                else:
-                    scl = mc + ST_nRT
+                scl = mc + ST_nRT
                 nnrt = nnrt - 1
                 s = 2
         table.append([mc, rtcl, nrtcl, nrt, nnrt, scl, s, pe])
@@ -63,7 +59,7 @@ while mc < mc_end:
         elif nnrt != 0:
             if pe > 0:
                 scl = mc + pe
-                pe = pe - (scl - mc)
+                pe = 0
             else:
                 scl = mc + ST_nRT
             s = 2
@@ -75,7 +71,7 @@ while mc < mc_end:
 print(tabulate(table, headers = ["MC", "RTCL", "nRTCL", "nRT", "nNRT", "SCL", "s", "PE"]))
 
 '''
-Output 1.2:
+Task 1.1 Output:
 
   MC    RTCL    nRTCL    nRT    nNRT    SCL    s    PE
 ----  ------  -------  -----  ------  -----  ---  ----
@@ -110,8 +106,7 @@ Output 1.2:
   46      53       50      0       0     50    2     0
   50      53       55      0       1     50    2     0
 
-
-Output 1.2:
+Task 1.2 Output:
 
   MC    RTCL    nRTCL    nRT    nNRT    SCL    s    PE
 ----  ------  -------  -----  ------  -----  ---  ----
@@ -126,4 +121,5 @@ Output 1.2:
   17      18       25      0       1     18    2     0
   18      23       25      0       1     22    1     0
   22      23       25      0       0     24    2     0
+
 '''
